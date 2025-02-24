@@ -1,0 +1,40 @@
+-------------------------------------------------------------------------------
+Test set: es.file.json.TributoServiceTest
+-------------------------------------------------------------------------------
+Tests run: 9, Failures: 1, Errors: 8, Skipped: 0, Time elapsed: 0.12 s <<< FAILURE! - in es.file.json.TributoServiceTest
+es.file.json.TributoServiceTest.searchTributoByIdTest  Time elapsed: 0.062 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <es.file.json.dos.Tributo@76b07f29> but was: <null>
+	at es.file.json.TributoServiceTest.searchTributoByIdTest(TributoServiceTest.java:56)
+
+es.file.json.TributoServiceTest.addTributoNullTest  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because the return value of "es.file.json.dos.TributoService.loadAll()" is null
+	at es.file.json.TributoServiceTest.afterEach(TributoServiceTest.java:27)
+
+es.file.json.TributoServiceTest.searchListTributosRangeExistTest  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because "tributos" is null
+	at es.file.json.TributoServiceTest.searchListTributosRangeExistTest(TributoServiceTest.java:83)
+
+es.file.json.TributoServiceTest.searchTributoByIdNotExistTest  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because the return value of "es.file.json.dos.TributoService.loadAll()" is null
+	at es.file.json.TributoServiceTest.afterEach(TributoServiceTest.java:27)
+
+es.file.json.TributoServiceTest.searchTributoDeleteNotExistTest  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because the return value of "es.file.json.dos.TributoService.loadAll()" is null
+	at es.file.json.TributoServiceTest.afterEach(TributoServiceTest.java:27)
+
+es.file.json.TributoServiceTest.addTributoTest  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because the return value of "es.file.json.dos.TributoService.loadAll()" is null
+	at es.file.json.TributoServiceTest.addTributoTest(TributoServiceTest.java:38)
+
+es.file.json.TributoServiceTest.searchTributoByIdNegativoTest  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because the return value of "es.file.json.dos.TributoService.loadAll()" is null
+	at es.file.json.TributoServiceTest.afterEach(TributoServiceTest.java:27)
+
+es.file.json.TributoServiceTest.addTributoExistTest  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because the return value of "es.file.json.dos.TributoService.loadAll()" is null
+	at es.file.json.TributoServiceTest.afterEach(TributoServiceTest.java:27)
+
+es.file.json.TributoServiceTest.tributoNoEqualsTest  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because the return value of "es.file.json.dos.TributoService.loadAll()" is null
+	at es.file.json.TributoServiceTest.afterEach(TributoServiceTest.java:27)
+

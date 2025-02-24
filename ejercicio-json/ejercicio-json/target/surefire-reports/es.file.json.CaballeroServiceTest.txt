@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: es.file.json.CaballeroServiceTest
+-------------------------------------------------------------------------------
+Tests run: 9, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.068 s <<< FAILURE! - in es.file.json.CaballeroServiceTest
+es.file.json.CaballeroServiceTest.searchListCaballerosRangeExistTest  Time elapsed: 0.016 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because "caballeros" is null
+	at es.file.json.CaballeroServiceTest.searchListCaballerosRangeExistTest(CaballeroServiceTest.java:82)
+
