@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>HechizoService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ejercicio-json</a> &gt; <a href="index.source.html" class="el_package">es.file.json.tres</a> &gt; <span class="el_source">HechizoService.java</span></div><h1>HechizoService.java</h1><pre class="source lang-java linenums">package es.file.json.tres;
+
+
+import java.io.File;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import es.file.json.dos.Tributo;
+
+
+public class HechizoService   {
+    ObjectMapper objectMapper;
+<span class="fc" id="L18">    String path = &quot;src/main/resources/hechizos.json&quot;;</span>
+    File file;
+    List&lt;Hechizo&gt; hechizos;
+
+<span class="fc" id="L22">    public HechizoService() {</span>
+<span class="fc" id="L23">        objectMapper = new ObjectMapper();</span>
+<span class="fc" id="L24">        file = new File(path);</span>
+<span class="fc" id="L25">        hechizos = loadAll();</span>
+<span class="fc" id="L26">    }</span>
+
+    public Hechizo findById(int id) {
+<span class="fc" id="L29">        Hechizo hechizo = new Hechizo(id);</span>
+<span class="fc" id="L30">        int posicion = hechizos.indexOf(hechizo);</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">        if( posicion &lt; 0){</span>
+<span class="fc" id="L32">            return null;</span>
+        }
+<span class="fc" id="L34">        return hechizos.get(posicion);</span>
+    }
+
+    public List&lt;Hechizo&gt; findByDateRange(String startDate, String endDate) {
+<span class="pc bpc" id="L38" title="4 of 8 branches missed.">        if (startDate.isEmpty() || endDate.isEmpty() || startDate == null || endDate == null){</span>
+<span class="nc" id="L39">            return null;</span>
+        }
+<span class="fc" id="L41">        List&lt;Hechizo&gt; lista = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L42">        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(&quot;yyyy-MM-dd&quot;);</span>
+        try {
+<span class="fc" id="L44">            LocalDate start = LocalDate.parse(startDate, formatter);</span>
+<span class="fc" id="L45">            LocalDate end = LocalDate.parse(endDate, formatter);</span>
+<span class="fc bfc" id="L46" title="All 2 branches covered.">            for (Hechizo hechizo : hechizos) {</span>
+<span class="fc" id="L47">                LocalDate fechaIngreso = LocalDate.parse(hechizo.getFechaCreacion(), formatter);</span>
+<span class="pc bpc" id="L48" title="1 of 4 branches missed.">                if(!fechaIngreso.isBefore(start) &amp;&amp; !fechaIngreso.isAfter(end)) {</span>
+<span class="fc" id="L49">                    lista.add(hechizo);</span>
+                }
+<span class="fc" id="L51">            }</span>
+<span class="nc" id="L52">        } catch (Exception e) {</span>
+<span class="nc" id="L53">            e.printStackTrace();</span>
+<span class="fc" id="L54">        }</span>
+<span class="fc" id="L55">        return lista;</span>
+    }
+
+    public List&lt;Hechizo&gt; getList() {
+<span class="nc" id="L59">        return new ArrayList&lt;&gt;(hechizos);</span>
+    }
+    
+    public List&lt;Hechizo&gt; loadAll() {
+        try {
+<span class="fc" id="L64">            hechizos = objectMapper.readValue(file, new TypeReference&lt;List&lt;Hechizo&gt;&gt;() {});</span>
+<span class="nc" id="L65">        } catch (Exception e) {</span>
+<span class="nc" id="L66">            e.printStackTrace();</span>
+<span class="fc" id="L67">        }</span>
+<span class="fc" id="L68">        return hechizos;</span>
+    }
+    
+    
+    
+    public boolean add(Hechizo obj) {
+<span class="fc bfc" id="L74" title="All 2 branches covered.">        if (obj == null){</span>
+<span class="fc" id="L75">            return false;</span>
+        }
+<span class="fc" id="L77">        int posicion = hechizos.indexOf(obj);</span>
+<span class="fc bfc" id="L78" title="All 2 branches covered.">        if (posicion &gt;= 0){</span>
+<span class="fc" id="L79">            return false;</span>
+        }
+<span class="fc" id="L81">        boolean insertar = hechizos.add(obj);</span>
+<span class="pc bpc" id="L82" title="1 of 2 branches missed.">        if (insertar){</span>
+<span class="fc" id="L83">            saveFile(file, hechizos);</span>
+        }
+<span class="fc" id="L85">        return insertar;</span>
+    }
+
+    public void saveFile(File file, List&lt;Hechizo&gt; hechizos) {
+        try {
+<span class="fc" id="L90">            objectMapper.writeValue(file, hechizos);</span>
+<span class="nc" id="L91">        } catch (Exception e) {</span>
+<span class="nc" id="L92">            e.printStackTrace();</span>
+<span class="fc" id="L93">        }</span>
+<span class="fc" id="L94">    }</span>
+
+    public boolean delete(Hechizo obj) {
+<span class="pc bpc" id="L97" title="1 of 2 branches missed.">        if (obj == null){</span>
+<span class="nc" id="L98">            return false;</span>
+        }
+<span class="fc" id="L100">        boolean borrar = hechizos.remove(obj);</span>
+<span class="fc bfc" id="L101" title="All 2 branches covered.">        if ( borrar){</span>
+<span class="fc" id="L102">            saveFile(file, hechizos);</span>
+        }
+<span class="fc" id="L104">        return borrar;</span>
+    }
+    
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

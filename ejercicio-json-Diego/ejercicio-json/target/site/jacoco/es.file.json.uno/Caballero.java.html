@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Caballero.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ejercicio-json</a> &gt; <a href="index.source.html" class="el_package">es.file.json.uno</a> &gt; <span class="el_source">Caballero.java</span></div><h1>Caballero.java</h1><pre class="source lang-java linenums">package es.file.json.uno;
+
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Caballero {
+    private int id;
+    private String nombre;
+    private String constelacion;
+    private int nivel;
+    private String fechaIngreso;
+
+
+<span class="nc" id="L18">    public Caballero() {</span>
+<span class="nc" id="L19">    }</span>
+    
+    
+
+    @JsonCreator
+    public Caballero(@JsonProperty(&quot;id&quot;) int id,
+                     @JsonProperty(&quot;nombre&quot;) String nombre,
+                     @JsonProperty(&quot;constelacion&quot;) String constelacion,
+                     @JsonProperty(&quot;nivel&quot;) int nivel,
+<span class="fc" id="L28">                     @JsonProperty(&quot;fechaIngreso&quot;) String fechaIngreso) {</span>
+<span class="fc" id="L29">        this.id = id;</span>
+<span class="fc" id="L30">        this.nombre = nombre;</span>
+<span class="fc" id="L31">        this.constelacion = constelacion;</span>
+<span class="fc" id="L32">        this.nivel = nivel;</span>
+<span class="fc" id="L33">        this.fechaIngreso = fechaIngreso;</span>
+<span class="fc" id="L34">    }</span>
+
+
+<span class="fc" id="L37">    public Caballero(@JsonProperty(&quot;id&quot;) int id) {</span>
+<span class="fc" id="L38">        this.id = id;</span>
+<span class="fc" id="L39">    }</span>
+    
+
+    public int getId() {
+<span class="fc" id="L43">        return this.id;</span>
+    }
+
+    public String getNombre() {
+<span class="fc" id="L47">        return this.nombre;</span>
+    }
+
+    public String getConstelacion() {
+<span class="fc" id="L51">        return this.constelacion;</span>
+    }
+
+    public int getNivel() {
+<span class="fc" id="L55">        return this.nivel;</span>
+    }
+
+    public String getFechaIngreso() {
+<span class="fc" id="L59">        return this.fechaIngreso;</span>
+    }
+
+    @Override
+    public boolean equals(Object o) {
+<span class="fc bfc" id="L64" title="All 2 branches covered.">        if (o == this)</span>
+<span class="fc" id="L65">            return true;</span>
+<span class="fc bfc" id="L66" title="All 2 branches covered.">        if (!(o instanceof Caballero)) {</span>
+<span class="fc" id="L67">            return false;</span>
+        }
+<span class="fc" id="L69">        Caballero caballero = (Caballero) o;</span>
+<span class="fc" id="L70">        return Objects.equals(id, caballero.id);</span>
+    }
+   
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

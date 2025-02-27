@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Hechizo.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ejercicio-json</a> &gt; <a href="index.source.html" class="el_package">es.file.json.tres</a> &gt; <span class="el_source">Hechizo.java</span></div><h1>Hechizo.java</h1><pre class="source lang-java linenums">package es.file.json.tres;
+
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Hechizo {
+    private int id;
+    private String nombre;
+    private String tipo;
+    private boolean esOscuro;
+    private String fechaCreacion;
+
+
+<span class="nc" id="L18">    public Hechizo() {</span>
+<span class="nc" id="L19">    }</span>
+    
+    @JsonCreator
+    public Hechizo(@JsonProperty(&quot;id&quot;) int id,
+                   @JsonProperty(&quot;nombre&quot;) String nombre,
+                   @JsonProperty(&quot;tipo&quot;) String tipo,
+                   @JsonProperty(&quot;esOscuro&quot;) boolean esOscuro,
+<span class="fc" id="L26">                   @JsonProperty(&quot;fechaCreacion&quot;) String fechaCreacion) {</span>
+<span class="fc" id="L27">        this.id = id;</span>
+<span class="fc" id="L28">        this.nombre = nombre;</span>
+<span class="fc" id="L29">        this.tipo = tipo;</span>
+<span class="fc" id="L30">        this.esOscuro = esOscuro;</span>
+<span class="fc" id="L31">        this.fechaCreacion = fechaCreacion;</span>
+<span class="fc" id="L32">    }</span>
+
+<span class="fc" id="L34">    public Hechizo(@JsonProperty(&quot;id&quot;) int id) {</span>
+<span class="fc" id="L35">        this.id = id;</span>
+<span class="fc" id="L36">    }</span>
+    
+
+    public int getId() {
+<span class="fc" id="L40">        return this.id;</span>
+    }
+
+    public String getNombre() {
+<span class="fc" id="L44">        return this.nombre;</span>
+    }
+
+    public String getTipo() {
+<span class="fc" id="L48">        return this.tipo;</span>
+    }
+
+    public boolean getEsOscuro() {
+<span class="fc" id="L52">        return this.esOscuro;</span>
+    }
+
+    public boolean isEsOscuro() {
+<span class="fc" id="L56">        return this.esOscuro;</span>
+    }
+
+    public String getFechaCreacion() {
+<span class="fc" id="L60">        return this.fechaCreacion;</span>
+    }
+
+    @Override
+    public boolean equals(Object o) {
+<span class="fc bfc" id="L65" title="All 2 branches covered.">        if (o == this)</span>
+<span class="fc" id="L66">            return true;</span>
+<span class="fc bfc" id="L67" title="All 2 branches covered.">        if (!(o instanceof Hechizo)) {</span>
+<span class="fc" id="L68">            return false;</span>
+        }
+<span class="fc" id="L70">        Hechizo hechizo = (Hechizo) o;</span>
+<span class="fc" id="L71">        return Objects.equals(id, hechizo.id);</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

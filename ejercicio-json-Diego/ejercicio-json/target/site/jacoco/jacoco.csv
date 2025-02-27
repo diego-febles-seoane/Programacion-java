@@ -1,0 +1,11 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+ejercicio-json,es.file.json.uno,CaballeroService.new TypeReference() {...},0,6,0,0,0,1,0,1,0,1
+ejercicio-json,es.file.json.uno,CaballeroService,16,162,5,17,7,42,6,13,1,7
+ejercicio-json,es.file.json.uno,CaballeroServiceFile,130,0,0,0,33,0,3,0,3,0
+ejercicio-json,es.file.json.uno,Caballero,3,60,0,4,2,21,1,10,1,8
+ejercicio-json,es.file.json.dos,Tributo,3,63,0,4,2,22,1,11,1,9
+ejercicio-json,es.file.json.dos,TributoService.new TypeReference() {...},0,6,0,0,0,1,0,1,0,1
+ejercicio-json,es.file.json.dos,TributoService,19,167,7,19,9,43,8,13,1,7
+ejercicio-json,es.file.json.tres,HechizoService.new TypeReference() {...},0,6,0,0,0,1,0,1,0,1
+ejercicio-json,es.file.json.tres,HechizoService,19,167,7,19,9,43,8,13,1,7
+ejercicio-json,es.file.json.tres,Hechizo,3,63,0,4,2,22,1,11,1,9
